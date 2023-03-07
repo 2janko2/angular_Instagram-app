@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './testComponents/test.component';
+import { SecondTestComponent } from './second-test/second-test.component';
 
 // Modules are separate complete pages which we cannot reuse somewhere else
 // We need to create shared modules for reused components then
@@ -11,7 +12,8 @@ import { TestComponent } from './testComponents/test.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    SecondTestComponent
     // here we should write out components which we use in our app
   ],
   imports: [
