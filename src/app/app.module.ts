@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './testComponents/test.component';
+import { HeaderComponent } from './testComponents/header.component';
 import { SecondTestComponent } from './second-test/second-test.component';
 
 // Modules are separate complete pages which we cannot reuse somewhere else
@@ -12,7 +12,7 @@ import { SecondTestComponent } from './second-test/second-test.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
+    HeaderComponent,
     SecondTestComponent
     // here we should write out components which we use in our app
   ],
