@@ -1,0 +1,19 @@
+.header {
+    background-color: #FF5252;
+    padding: 0 20px;
+    margin-bottom: 40px;
+
+    &_content {
+        display: flex;
+        padding: 20px 0;
+    }
+
+    &_title {
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 0;
+        margin: 0 0 0 6px;
+        text-transform: uppercase;
+    }
+}
