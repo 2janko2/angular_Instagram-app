@@ -10,3 +10,4 @@
 *.tgz
 *.lock
 index.pack.old
+.angular/cache/15.2.1/
