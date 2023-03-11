@@ -11,18 +11,15 @@ import { VacancyCardComponent } from './vacancy-card/vacancy-card.component';
 // We need to create shared modules for reused components then
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SecondTestComponent,
-    VacancyCardComponent
-    // here we should write out components which we use in our app
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        SecondTestComponent,
+        VacancyCardComponent,
+        // here we should write out components which we use in our app
+    ],
+    imports: [BrowserModule, AppRoutingModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
