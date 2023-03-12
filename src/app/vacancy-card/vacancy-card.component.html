@@ -23,7 +23,9 @@
             <span>
                 <img src="../../assets/vacancyCard/checked.svg" alt="checked" />
             </span>
-            <p>Reply</p>
+            <button (click)="handleReply()">Reply</button>
+            {{ output }}
+            <input (input)="handleInputValue($event)" type="text" />
             <span>
                 <img src="../../assets/vacancyCard/star.svg" alt="star" />
             </span>
