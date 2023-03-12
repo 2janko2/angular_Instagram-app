@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'inst-vacancy-card',
@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./vacancy-card.component.scss'],
 })
 export class VacancyCardComponent {
+    @Input() labelTitle?: string;
+    @Input() content?: string;
+    @Input() contentSubtitle?: string;
+    @Input() contentSubtitleAlias?: string;
+    @Input() contentLocation?: string;
+    @Input() contentCompany?: string;
+    @Input() benefitsMeals?: string;
+    @Input() benefitsTime?: string;
+    @Input() benefitsGym?: string;
+    @Input() footerTiming?: string;
+
     output = '';
     handleReply() {
         alert('Thanks for your reply');

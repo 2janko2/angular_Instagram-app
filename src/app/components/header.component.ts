@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'inst-header-component',
@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
     // We cann apply as many styles as we want
 })
 export class HeaderComponent {
-    headerTitle = 'To Do List';
+    @Input() headerComponentTitle?: string;
 
     imgSrc = '../../assets/logo.svg';
 
