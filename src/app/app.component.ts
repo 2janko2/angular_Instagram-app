@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'instagram';
     headerComponentTitle = 'To Do List';
+    dislikeImgSrc = '../../assets/vacancyCard/dislike.svg';
+
+    vacancyDislikePressed(item: string) {
+        debugger;
+        this.dislikeImgSrc = item;
+    }
 }

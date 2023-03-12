@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'inst-vacancy-card',
@@ -16,13 +16,21 @@ export class VacancyCardComponent {
     @Input() benefitsTime?: string;
     @Input() benefitsGym?: string;
     @Input() footerTiming?: string;
+    @Input() dislikeImgSrc?: string;
 
+    @Output() dislikeEvent = new EventEmitter<string>();
     output = '';
+
     handleReply() {
         alert('Thanks for your reply');
     }
 
     handleInputValue(event: Event) {
         this.output = (event.currentTarget as HTMLInputElement).value;
+    }
+
+    dislikeHandler() {
+        debugger;
+        this.dislikeEvent.emit('../../assets/vacancyCard/dislikeClicked.svg');
     }
 }

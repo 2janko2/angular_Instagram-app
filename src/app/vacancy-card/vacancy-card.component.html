@@ -33,8 +33,8 @@
             <span>
                 <img src="../../assets/vacancyCard/star.svg" alt="star" />
             </span>
-            <span>
-                <img src="../../assets/vacancyCard/dislike.svg" alt="dislike" />
+            <span (click)="dislikeHandler()">
+                <img [src]="dislikeImgSrc" alt="dislike" />
             </span>
         </div>
         <div class="vacancyCard_footer_timing">{{ footerTiming }}</div>
