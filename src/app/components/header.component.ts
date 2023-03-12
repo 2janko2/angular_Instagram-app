@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
     // styleUrls - is an array of styles which we want to apply to our component.
     // We cann apply as many styles as we want
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+    headerTitle = 'To Do List';
+}
