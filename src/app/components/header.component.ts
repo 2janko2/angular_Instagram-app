@@ -11,4 +11,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
     headerTitle = 'To Do List';
+
+    imgSrc = '../../assets/logo.svg';
+
+    isLoading = false;
 }
