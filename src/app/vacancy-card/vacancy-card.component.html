@@ -30,11 +30,13 @@
             <button (click)="handleReply()">Reply</button>
             {{ output }}
             <input (input)="handleInputValue($event)" type="text" />
-            <span>
-                <img src="../../assets/vacancyCard/star.svg" alt="star" />
+            <span (click)="makeVacancyFavorite()">
+                <img *ngIf="!favoriteVacancyImgPath" src="../../assets/vacancyCard/star.svg" alt="star" />
+                <img *ngIf="favoriteVacancyImgPath" src="../../assets/vacancyCard/likedStar.svg" alt="star" />
             </span>
             <span (click)="dislikeHandler()">
-                <img [src]="dislikeImgSrc" alt="dislike" />
+                <img *ngIf="!dislikeImgSrc" src="../../assets/vacancyCard/dislike.svg" alt="dislike" />
+                <img *ngIf="dislikeImgSrc" src="../../assets/vacancyCard/dislikeClicked.svg" alt="dislike" />
             </span>
         </div>
         <div class="vacancyCard_footer_timing">{{ footerTiming }}</div>

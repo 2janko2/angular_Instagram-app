@@ -1,15 +1,18 @@
 <inst-header-component [headerComponentTitle]="headerComponentTitle"></inst-header-component>
 <inst-vacancy-card
-    [labelTitle]="'New'"
-    [content]="'Sales Manager(Shopping Mall \'Krab\', Shopping Mall \'Reew Gosh\', Shopping Mall \'New Way\')'"
-    [contentSubtitle]="'10 000 - 15 000$ per month'"
-    [contentSubtitleAlias]="'+ 15% Welcome Bonus'"
-    [contentLocation]="'Sidney'"
-    [contentCompany]="'FISHKI.UA'"
-    [benefitsMeals]="'Free meals'"
-    [benefitsTime]="'Flexible Schedule'"
-    [benefitsGym]="'Gym Ticket'"
-    [footerTiming]="'37 min. ago'"
-    [dislikeImgSrc]="dislikeImgSrc"
-    (dislikeEvent)="vacancyDislikePressed($event)">
+    *ngFor="let vacancy of vacancies"
+    [labelTitle]="vacancy.labelTitle"
+    [content]="vacancy.content"
+    [contentSubtitle]="vacancy.contentSubtitle"
+    [contentSubtitleAlias]="vacancy.contentSubtitleAlias"
+    [contentLocation]="vacancy.contentLocation"
+    [contentCompany]="vacancy.contentCompany"
+    [benefitsMeals]="vacancy.benefitsMeals"
+    [benefitsTime]="vacancy.benefitsMeals"
+    [benefitsGym]="vacancy.benefitsGym"
+    [footerTiming]="vacancy.footerTiming"
+    [dislikeImgSrc]="vacancy.dislikeImgSrc"
+    [favoriteVacancyImgPath]="vacancy.favoriteVacancyImgPath"
+    (dislikeEvent)="(vacancy.dislikeEvent)"
+    (makeFavorite)="(vacancy.makeFavorite)">
 </inst-vacancy-card>

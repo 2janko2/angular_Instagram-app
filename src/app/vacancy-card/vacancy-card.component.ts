@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
     selector: 'inst-vacancy-card',
@@ -16,9 +16,11 @@ export class VacancyCardComponent {
     @Input() benefitsTime?: string;
     @Input() benefitsGym?: string;
     @Input() footerTiming?: string;
-    @Input() dislikeImgSrc?: string;
+    @Input() dislikeImgSrc?: boolean;
+    @Input() favoriteVacancyImgPath?: boolean;
 
-    @Output() dislikeEvent = new EventEmitter<string>();
+    @Output() dislikeEvent = new EventEmitter();
+    @Output() makeFavorite = new EventEmitter();
     output = '';
 
     handleReply() {
@@ -30,7 +32,10 @@ export class VacancyCardComponent {
     }
 
     dislikeHandler() {
-        debugger;
-        this.dislikeEvent.emit('../../assets/vacancyCard/dislikeClicked.svg');
+        this.dislikeEvent.emit();
+    }
+
+    makeVacancyFavorite() {
+        this.makeFavorite.emit();
     }
 }
