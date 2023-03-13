@@ -1,0 +1,11 @@
+.even{
+    color: green;
+}
+
+.odd{
+    color: red;
+}
+
+.biggerThan15{
+    font-size: 24px;
+}

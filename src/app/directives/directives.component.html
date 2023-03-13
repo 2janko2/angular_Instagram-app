@@ -1,0 +1,10 @@
+<ng-container *ngFor="let fruit of fruits; even as e; odd as o">
+    <div [ngClass]="{even: e, odd: o, biggerThan15: fruit.price > 15}" *ngIf="fruit.price > 7">
+        Id -
+        <h3>{{ fruit.id }}</h3>
+        Name -
+        <h3>{{ fruit.name }}</h3>
+        Price -
+        <h3>{{ fruit.price }}</h3>
+    </div>
+</ng-container>
