@@ -25,8 +25,8 @@ export class AppComponent {
             footerTiming: '37 min. ago',
             dislikeImgSrc: this.dislikeImgSrc,
             favoriteVacancyImgPath: this.favoriteVacancyImgPath,
-            dislikeEvent: this.vacancyDislikePressed(),
-            makeFavorite: this.addVacancyToFavorite(),
+            dislikeEvent: this.vacancyDislikePressed,
+            makeFavorite: this.addVacancyToFavorite,
         },
         {
             labelTitle: 'Old',
@@ -41,13 +41,18 @@ export class AppComponent {
             footerTiming: '30 days ago',
             dislikeImgSrc: this.dislikeImgSrc,
             favoriteVacancyImgPath: this.favoriteVacancyImgPath,
-            dislikeEvent: this.vacancyDislikePressed(),
-            makeFavorite: this.addVacancyToFavorite(),
+            dislikeEvent: this.vacancyDislikePressed,
+            makeFavorite: this.addVacancyToFavorite,
         },
     ];
 
+    constructor() {
+        console.log(this.vacancies);
+    }
+
     vacancyDislikePressed() {
         this.dislikeImgSrc = !this.dislikeImgSrc;
+        console.log(this.vacancies);
     }
 
     addVacancyToFavorite() {

@@ -13,6 +13,6 @@
     [footerTiming]="vacancy.footerTiming"
     [dislikeImgSrc]="vacancy.dislikeImgSrc"
     [favoriteVacancyImgPath]="vacancy.favoriteVacancyImgPath"
-    (dislikeEvent)="(vacancy.dislikeEvent)"
-    (makeFavorite)="(vacancy.makeFavorite)">
+    (dislikeEvent)="vacancy.dislikeEvent()"
+    (makeFavorite)="vacancy.makeFavorite()">
 </inst-vacancy-card>
