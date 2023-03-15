@@ -1,3 +1,4 @@
+<h5>{{ testValue }}</h5>
 <div class="vacancyCard">
     <div class="vacancyCard_header"></div>
 
@@ -12,7 +13,7 @@
                 {{ contentSubtitle }} <span>{{ contentSubtitleAlias }}</span>
             </p>
             <p class="vacancyCard_content_location">
-                <span>{{ contentCompany }}</span> {{ contentLocation }}
+                <span>{{ contentCompany | uppercase }}</span> {{ contentLocation }}
             </p>
             <div class="vacancyCard_content_benefits">
                 <span> {{ benefitsMeals }} </span>

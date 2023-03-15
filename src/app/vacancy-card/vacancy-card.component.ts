@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ValueService} from 'src/value.service';
 
 @Component({
     selector: 'inst-vacancy-card',
@@ -22,6 +23,11 @@ export class VacancyCardComponent {
     @Output() dislikeEvent = new EventEmitter();
     @Output() makeFavorite = new EventEmitter();
     output = '';
+    testValue;
+
+    constructor(private valueService: ValueService) {
+        this.testValue = valueService.value;
+    }
 
     handleReply() {
         alert('Thanks for your reply');
