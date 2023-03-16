@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {ValueService} from 'src/value.service';
 
 @Component({
@@ -22,11 +23,24 @@ export class VacancyCardComponent {
 
     @Output() dislikeEvent = new EventEmitter();
     @Output() makeFavorite = new EventEmitter();
+    
     output = '';
-    testValue;
 
-    constructor(private valueService: ValueService) {
-        this.testValue = valueService.value;
+    testValue$ = new Observable();
+
+    constructor(private valueService: ValueService) {}
+
+    ngOnInit() {
+        this.testValue$ = this.valueService.value$
+    }
+
+    handleInc() {
+        this.valueService.inc()
+    }
+
+
+    handleDec() {
+        this.valueService.dec()
     }
 
     handleReply() {

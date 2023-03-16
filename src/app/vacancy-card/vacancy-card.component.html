@@ -1,4 +1,3 @@
-<h5>{{ testValue }}</h5>
 <div class="vacancyCard">
     <div class="vacancyCard_header"></div>
 
@@ -19,6 +18,9 @@
                 <span> {{ benefitsMeals }} </span>
                 <span> {{ benefitsTime }} </span>
                 <span> {{ benefitsGym }} </span>
+                <span> {{ testValue$ | async }} </span>
+                <button (click)="handleInc()"> Increase </button>
+                <button (click)="handleDec()" > Decrease </button>
             </div>
         </div>
     </div>
