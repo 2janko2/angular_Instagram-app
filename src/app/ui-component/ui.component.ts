@@ -10,6 +10,7 @@ import { LoggerService } from '../logger.service';
 })
 export class UiComponent {
   todos: StandardResponse[] = [];
+  error = ''
   constructor(private loggerService: LoggerService, private apiService: ApiService) { }
 
   handleClick() {
@@ -17,10 +18,17 @@ export class UiComponent {
   }
 
   ngOnInit() {
-    this.apiService.getList().subscribe((response: StandardResponse[]) => {
-      this.todos = response;
-    })
+    this.apiService.getList()
+      .subscribe({
+        next: (response: StandardResponse[]) => {
+          this.todos = response;
+        },
+        error: (error) => {
+          this.error = error;
+        },
+        complete: () => {
+          console.log("Complete finished");
+        }
+      })
   }
-
-
 }
