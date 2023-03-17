@@ -15,17 +15,10 @@ export interface StandardResponse {
 })
 
 export class ApiService {
-  requestOptions = {
-    withCredentials: true,
-    headers: {
-      'api-key': environment.apiKey
-    }
-  }
-
   constructor(private http: HttpClient) {
   }
 
   getList(): Observable<StandardResponse[]> {
-    return this.http.get<StandardResponse[]>(`${environment.baseUrl}/todo-lists`, this.requestOptions)
+    return this.http.get<StandardResponse[]>(`${environment.baseUrl}/todo-lists`)
   }
 }

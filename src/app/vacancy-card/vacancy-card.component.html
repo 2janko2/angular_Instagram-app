@@ -20,7 +20,7 @@
                 <span> {{ benefitsGym }} </span>
                 <span> {{ testValue$ | async }} </span>
                 <button (click)="handleInc()"> Increase </button>
-                <button (click)="handleDec()" > Decrease </button>
+                <button (click)="handleDec()"> Decrease </button>
             </div>
         </div>
     </div>
@@ -31,8 +31,20 @@
                 <img src="../../assets/vacancyCard/checked.svg" alt="checked" />
             </span>
             <button (click)="handleReply()">Reply</button>
-            {{ output }}
-            <input (input)="handleInputValue($event)" type="text" />
+            <!-- <input (input)="handleInputValue($event)" type="text" id="inputForm" [formControl]="inputForm" /> -->
+
+            <form [formGroup]="inputForm" (ngSubmit)='handleSubmit()'>
+                <label>Email: </label>
+                <input id="email" type="text" formControlName="email">
+
+                <label>Password:</label>
+                <input id="password" type="text" formControlName="password">
+                <button type="submit">Send</button>
+                <div *ngIf="email!.invalid && email!.dirty && email!.touched">ERROR!</div>
+                <div *ngIf="email!.errors?.['required']">Required</div>
+                <div *ngIf="email!.errors?.['pattern']">Pattern</div>
+            </form>
+
             <span (click)="makeVacancyFavorite()">
                 <img *ngIf="!favoriteVacancyImgPath" src="../../assets/vacancyCard/star.svg" alt="star" />
                 <img *ngIf="favoriteVacancyImgPath" src="../../assets/vacancyCard/likedStar.svg" alt="star" />

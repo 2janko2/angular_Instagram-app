@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {ValueService} from 'src/value.service';
+import { ValueService } from 'src/value.service';
 
 @Component({
     selector: 'inst-vacancy-card',
@@ -23,12 +24,25 @@ export class VacancyCardComponent {
 
     @Output() dislikeEvent = new EventEmitter();
     @Output() makeFavorite = new EventEmitter();
-    
+
     output = '';
+
+    inputForm = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}$')]),
+        password: new FormControl(''),
+    });
+
+    handleSubmit(){
+        alert(JSON.stringify(this.inputForm.value))
+    }
+
+    get email() {
+        return this.inputForm.get('email');
+    }
 
     testValue$ = new Observable();
 
-    constructor(private valueService: ValueService) {}
+    constructor(private valueService: ValueService) { }
 
     ngOnInit() {
         this.testValue$ = this.valueService.value$
@@ -37,7 +51,6 @@ export class VacancyCardComponent {
     handleInc() {
         this.valueService.inc()
     }
-
 
     handleDec() {
         this.valueService.dec()

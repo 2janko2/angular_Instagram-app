@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ApiService, StandardResponse } from '../api.service';
 import { LoggerService } from '../logger.service';
 
@@ -10,7 +11,11 @@ import { LoggerService } from '../logger.service';
 })
 export class UiComponent {
   todos: StandardResponse[] = [];
+
+  subscriptions: Subscription = new Subscription()
+
   error = ''
+
   constructor(private loggerService: LoggerService, private apiService: ApiService) { }
 
   handleClick() {
@@ -18,7 +23,7 @@ export class UiComponent {
   }
 
   ngOnInit() {
-    this.apiService.getList()
+    this.subscriptions.add(this.apiService.getList()
       .subscribe({
         next: (response: StandardResponse[]) => {
           this.todos = response;
@@ -29,6 +34,10 @@ export class UiComponent {
         complete: () => {
           console.log("Complete finished");
         }
-      })
+      }))
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 }
